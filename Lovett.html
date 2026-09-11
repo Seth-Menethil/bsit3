@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legend of Zelda - 40th Anniversary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .emblem-container {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .emblem-container img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
+            to { filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7)); }
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .title h1 {
+            font-size: 2.2rem;
+            color: #d4a843;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 0 0 20px rgba(212, 168, 67, 0.4);
+        }
+
+        .title p {
+            font-size: 1rem;
+            color: #999;
+            letter-spacing: 4px;
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4a843, transparent);
+            margin: 25px 0;
+        }
+
+        .content {
+            max-width: 600px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .content p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #aaa;
+        }
+
+        .year-badge {
+            margin-top: 30px;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #d4a843;
+            letter-spacing: 10px;
+            opacity: 0;
+            animation: fadeUp 1.2s ease forwards 0.5s;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(20px); }
+        }
+
+        .triforce {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 1.2s ease forwards 1s;
+        }
+
+        .triforce svg {
+            width: 50px;
+            height: 45px;
+            fill: #d4a843;
+        }
+    </style>
+</head>
+<body>
+    <div class="emblem-container">
+        <img src="images.jpeg" alt="Zelda Emblem">
+    </div>
+
+    <div class="title">
+        <h1>The Legend of Zelda</h1>
+        <p>40th Anniversary</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p>For forty years, the Legend has lived on. From the original quest on the NES to the vast worlds of today, Hyrule continues to inspire adventure across generations.</p>
+    </div>
+
+    <div class="year-badge">1986 — 2026</div>
+
+    <div class="triforce">
+        <svg viewBox="0 0 100 90">
+            <polygon points="50,0 0,90 100,90" fill="none" stroke="#d4a843" stroke-width="3"/>
+            <polygon points="50,0 25,45 75,45" fill="#d4a843"/>
+            <polygon points="25,45 0,90 50,90" fill="none" stroke="#d4a843" stroke-width="2"/>
+            <polygon points="75,45 50,90 100,90" fill="none" stroke="#d4a843" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const badge = document.querySelector('.year-badge');
+            const triforce = document.querySelector('.triforce');
+            const emblem = document.querySelector('.emblem-container img');
+
+            emblem.addEventListener('mouseenter', () => {
+                emblem.style.transform = 'rotate(10deg) scale(1.05)';
+                emblem.style.transition = 'transform 0.3s ease';
+            });
+
+            emblem.addEventListener('mouseleave', () => {
+                emblem.style.transform = 'rotate(0deg) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
